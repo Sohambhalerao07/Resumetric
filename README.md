@@ -127,17 +127,17 @@ npm run build
 
 ## Home Page
 
-![Home Page](./screenshots/SS3.jepg)
+![Home Page](./screenshots/SS3.jpeg)
 
 ---
 
 ## Match Results
 
-![Resume Upload](./screenshots/SS1.jepg)
+![Resume Upload](./screenshots/SS1.jpeg)
 
 ---
 
-![Results](./screenshots/SS2.jepg)
+![Results](./screenshots/SS2.jpeg)
 
 ---
 
