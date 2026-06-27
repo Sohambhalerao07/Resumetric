@@ -117,9 +117,9 @@ npm run build
 * Multer
 * PDF Parser
 
-### AI
-
-* OpenRouter API
+### AI & Document Processing
+- Microsoft MarkItDown (Resume Parsing)
+- OpenRouter API (LLM Integration)
 
 ---
 
