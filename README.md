@@ -1,4 +1,4 @@
-# Resume JD Matcher
+# Resumetric - Resume JD Matcher
 
 An AI-powered Resume–Job Description Matcher that analyzes a candidate's resume against a job description and provides a match score along with personalized recommendations for improvement.
 
