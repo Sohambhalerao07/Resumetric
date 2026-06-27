@@ -2,14 +2,17 @@
 
 An AI-powered Resume–Job Description Matcher that analyzes a candidate's resume against a job description and provides a match score along with personalized recommendations for improvement.
 
-## Features
+## How It Works
 
-* Upload Resume (PDF)
-* Paste Job Description
-* AI-powered Resume Analysis
-* Match Score Calculation
-* Strengths & Improvement Suggestions
-* Clean and Responsive UI
+1. Upload a resume (PDF).
+2. The backend extracts text using **Microsoft MarkItDown**.
+3. The extracted resume content and the job description are sent to the AI model through **OpenRouter API**.
+4. The AI returns:
+   - Match Score
+   - Strengths
+   - Areas for Improvement
+   - Resume Recommendations
+5. The frontend displays the analysis in an easy-to-read dashboard.
 
 ---
 
@@ -122,6 +125,7 @@ npm run build
 - OpenRouter API (LLM Integration)
 
 ---
+Ensure Python is installed and that the required Python dependencies for **Microsoft MarkItDown** are available if your backend invokes it.
 
 # Screenshots
 
