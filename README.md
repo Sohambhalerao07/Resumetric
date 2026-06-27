@@ -15,6 +15,43 @@ An AI-powered Resume–Job Description Matcher that analyzes a candidate's resum
 5. The frontend displays the analysis in an easy-to-read dashboard.
 
 ---
+## System Architecture
+
+The application follows a layered architecture with clear separation of responsibilities.
+
+```text
+React Frontend
+      │
+      ▼
+Express API
+      │
+      ▼
+Document Parser (Microsoft MarkItDown)
+      │
+      ▼
+Resume Processor
+      │
+      ▼
+Prompt Builder
+      │
+      ▼
+AI Service (OpenRouter)
+      │
+      ▼
+Response Parser
+      │
+      ▼
+Frontend
+```
+
+The frontend handles user interaction, while the backend manages document parsing, AI communication, and response processing. This modular design makes the application easy to maintain and extend.
+
+---
+
+## AI Tools & Technical Decisions
+
+* **Microsoft MarkItDown** is used to convert uploaded PDF resumes into structured Markdown, preserving document sections and producing cleaner input for the LLM.
+* **OpenRouter** provides access to LLMs through a single API. The project is configured to use **Gemma 3 27B**, while keeping the AI layer provider-independent so models can be changed through configuration without modifying the application logic.
 
 # Project Structure
 
