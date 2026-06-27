@@ -1,0 +1,98 @@
+.analyze-button-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* --- Primary Analyze Button --- */
+.analyze-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: 52px;
+  padding: 0 var(--space-8);
+  border-radius: var(--radius-full);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  font-family: var(--font-family-base);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  border: none;
+  white-space: nowrap;
+
+  /* Default: disabled appearance */
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-tertiary);
+  box-shadow: none;
+}
+
+.analyze-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Ready state — full activation */
+.analyze-btn--ready {
+  background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-500));
+  color: white;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+}
+
+.analyze-btn--ready:hover {
+  background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-600));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+}
+
+.analyze-btn--ready:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+}
+
+/* Loading state */
+.analyze-btn--loading {
+  background: linear-gradient(135deg, var(--color-primary-400), var(--color-primary-300));
+  color: white;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* --- Reset Button --- */
+.reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 44px;
+  padding: 0 var(--space-5);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  font-family: var(--font-family-base);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.reset-btn:hover {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-border-strong);
+  color: var(--color-text-primary);
+}
+
+/* --- Responsive --- */
+@media (max-width: 400px) {
+  .analyze-btn {
+    width: 100%;
+    height: 48px;
+    padding: 0 var(--space-6);
+  }
+
+  .reset-btn {
+    width: 100%;
+  }
+}
