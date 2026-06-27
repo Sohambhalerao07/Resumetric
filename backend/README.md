@@ -1,117 +1,148 @@
-# Resume Matcher — Backend
+# Resume JD Matcher
 
-AI-powered resume & job description matcher. Node.js/Express backend with Python document parsing.
+An AI-powered Resume–Job Description Matcher that analyzes a candidate's resume against a job description and provides a match score along with personalized recommendations for improvement.
 
-## Quick Start
+## Features
 
-### 1. Prerequisites
+* Upload Resume (PDF)
+* Paste Job Description
+* AI-powered Resume Analysis
+* Match Score Calculation
+* Strengths & Improvement Suggestions
+* Clean and Responsive UI
 
-- **Node.js** ≥ 18
-- **Python** ≥ 3.9 with pip
-- An **OpenRouter API key** — get one at [openrouter.ai/keys](https://openrouter.ai/keys)
+---
 
-### 2. Install MarkItDown (Python)
+# Project Structure
 
-```bash
-pip install markitdown
+```text
+resume-jd-matcher/
+│
+├── frontend/
+├── backend/
+├── screenshots/
+│   ├── SS1.png
+│   ├── SS2.png
+│   └── SS3.png
+└── README.md
 ```
 
-### 3. Install Node dependencies
+---
+
+# Prerequisites
+
+* Node.js (v18 or later)
+* npm
+
+---
+
+# Installation
+
+## 1. Clone the Repository
+
+```bash
+git clone <repository-url>
+cd resume-jd-matcher
+```
+
+---
+
+## 2. Backend Setup
 
 ```bash
 cd backend
 npm install
 ```
 
-### 4. Configure environment
+Create a `.env` file inside the **backend** directory.
 
-Edit `backend/.env`:
+Example:
 
 ```env
 PORT=5000
+
+OPENROUTER_API_KEY=YOUR_OPENROUTER_API_KEY
+
 FRONTEND_URL=http://localhost:5173
-OPENROUTER_API_KEY=your_key_here
+
 MODEL=google/gemma-3-27b-it
 ```
 
-### 5. Start the server
+Start the backend:
 
 ```bash
-npm start         # production
-npm run dev       # development (auto-restarts on file changes)
+npm start
 ```
-
-Server runs on `http://localhost:5000`.
 
 ---
 
-## API
+## 3. Frontend Setup
 
-### `POST /api/match`
-
-**Content-Type:** `multipart/form-data`
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `resume` | File | ✅ | PDF resume (max 10 MB) |
-| `job_description` | string | ✅ | Full job posting text |
-
-**Success Response (200):**
-```json
-{
-  "success": true,
-  "data": {
-    "score": 85,
-    "summary": "Strong candidate with relevant experience...",
-    "strengths": ["5 years React experience", "..."],
-    "missingSkills": ["Kubernetes", "..."],
-    "recommendations": ["Add certification in...", "..."]
-  }
-}
+```bash
+cd ../frontend
+npm install
+npm run dev
 ```
 
-**Error Response:**
-```json
-{
-  "success": false,
-  "message": "Descriptive error message"
-}
-```
+The frontend runs at:
 
-### `GET /api/health`
-Returns `{ "status": "ok", "timestamp": "..." }`.
+```
+http://localhost:5173
+```
 
 ---
 
-## Architecture
+# Build
 
-```
-server.js              ← Entry point (bootstrap only)
-config/aiConfig.js     ← AI env vars (fail-fast validation)
-routes/matchRoutes.js  ← Route declarations
-controllers/
-  matchController.js   ← HTTP layer (thin)
-middleware/
-  uploadMiddleware.js  ← Multer: PDF validation + storage
-  errorHandler.js      ← Global error handler
-services/
-  matcherService.js    ← Pipeline orchestrator
-  documentParserService.js  ← Spawns python/parser.py
-  resumeProcessorService.js ← Cleans Markdown
-  promptBuilderService.js   ← Builds LLM prompt
-  AIService.js              ← OpenRouter client
-utils/
-  responseParser.js    ← Validates + parses LLM JSON
-python/
-  parser.py            ← MarkItDown PDF → Markdown (CLI only)
-uploads/               ← Temporary storage (auto-deleted after parse)
+```bash
+cd frontend
+npm run build
 ```
 
-## Changing the AI Model
+---
 
-Only update `.env`:
-```env
-MODEL=anthropic/claude-3.5-sonnet
-```
+# Technologies Used
 
-No code changes required.
+### Frontend
+
+* React
+* Vite
+* CSS3
+* JavaScript
+
+### Backend
+
+* Node.js
+* Express.js
+* Multer
+* PDF Parser
+
+### AI
+
+* OpenRouter API
+
+---
+
+# Screenshots
+
+## Home Page
+
+![Home Page](./screenshots/SS3.png)
+
+---
+
+## Match Results
+
+![Resume Upload](./screenshots/SS1.png)
+
+---
+
+![Results](./screenshots/SS2.png)
+
+---
+
+# Notes
+
+* `node_modules` are intentionally excluded from the repository.
+* Environment variables are not committed for security reasons.
+* Run `npm install` in both the `frontend` and `backend` directories before starting the application.
